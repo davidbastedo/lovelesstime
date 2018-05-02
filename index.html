@@ -1,0 +1,38 @@
+
+<html>
+	<head>
+		<script>
+			var dt = new Date();
+			document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()+1).slice(-2)) +":"+ (("0"+dt.getMinutes()+1).slice(-2));
+		
+		function startTime() {
+			var beginningoftime = new Date('January 1, 0000 00:00:00');
+			beginningoftime.setFullYear(0)
+			var releasedate = new Date('November 4, 1991 00:00:00');
+			var today = new Date();
+			var newdate = new Date(beginningoftime.getTime() + (today.getTime() - releasedate.getTime()))
+
+
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds();
+			m = checkTime(m);
+			s = checkTime(s);
+			document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+			document.getElementById('txt').innerHTML = today
+			document.getElementById('txt').innerHTML = newdate
+			var t = setTimeout(startTime, 500);
+		}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+		</script>
+
+	</head>
+	<body onload="startTime()">
+
+		<div id="txt"></div>
+	</body>
+</html>
